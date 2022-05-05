@@ -1,16 +1,14 @@
 let newDivBeers = document.getElementById("main");
-// let newDivInfo = document.getElementById("");
+
 
 async function getBeers() {
   try {
     /**
-     * Requete (GET) pour chercher les element sur l'API
+     * Requete (GET) pour chercher les element sur l'API BIER
      */
 
     const beerList = await axios.get("https://api.punkapi.com/v2/beers");
     console.log(beerList);
-
-    // const infoList = await axios.get("");
 
     /**
      * Boucle FOR OF pour parcourir l'ARRAY beerList.data et afficher les BIERS
@@ -18,11 +16,50 @@ async function getBeers() {
      * @data  [id, nom, groupe]
      *
      */
-    for (const artist of beerList.data) {
-      console.log(beerList.data);
+    for (const beer of beerList.data) {
+      // console.log(beer);
 
-      divArtiste.innerHTML += `
-        `;
+      newDivBeers.innerHTML += `<ul>
+      <li>
+        <div class="card" style="width: 18rem">
+          <img src="${beer.image_url}" class="card-img-top" alt="..."  />
+          <div class="card-body">
+            <h5 class="card-title">Name: ${beer.name}</h5>
+            <p class="card-text">
+              <stong>Description:</strong> ${beer.description}
+            </p>
+           
+           
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#${beer.id}">
+             More info
+            </button>
+           
+           
+            <div class="modal fade" id="${beer.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>hey</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          
+          
+            </div>
+        </div>
+      </li>
+    </ul>`;
+    
     }
 
     /**
@@ -35,21 +72,7 @@ async function getBeers() {
     //   console.log(List.data);
 
     newDivBeers.innerHTML += `
-      <ul>
-        <li>
-          <div class="card" style="width: 18rem">
-            <img src="Img/beer.gif" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </li>
-      </ul>`;
+     `;
   } catch (error) {
     console.log(error);
   }

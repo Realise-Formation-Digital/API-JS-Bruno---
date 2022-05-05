@@ -23,7 +23,22 @@ html {
 #main {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   background: linear-gradient(135deg, #200e08 0%, #f3b221 50%, #959d88 100%);
+}
+.card-title{
+  color:black
+}
+.card-img-top{
+  height: 170px;
+  width: 50px;
+}
+.card-text{
+color: black;
+}
+.card{
+  display: flex;
+  align-items: center;
 }
 
 img {
