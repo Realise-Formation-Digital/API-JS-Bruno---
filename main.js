@@ -1,6 +1,5 @@
 let newDivBeers = document.getElementById("main");
 
-
 async function getBeers() {
   try {
     /**
@@ -13,7 +12,7 @@ async function getBeers() {
     /**
      * Boucle FOR OF pour parcourir l'ARRAY beerList.data et afficher les BIERS
      *
-     * @data  [id, nom, groupe]
+     * @data  [id, name, tagline, first_brewed, description]
      *
      */
     for (const beer of beerList.data) {
@@ -26,7 +25,7 @@ async function getBeers() {
           <div class="card-body">
             <h5 class="card-title">Name: ${beer.name}</h5>
             <p class="card-text">
-              <stong>Description:</strong> ${beer.description}
+              Description:${beer.description}
             </p>
            
            
@@ -59,20 +58,7 @@ async function getBeers() {
         </div>
       </li>
     </ul>`;
-    
     }
-
-    /**
-     * Boucle FOR OF pour parcourir l'ARRAY List.data et afficher les
-     *
-     * @data[id, nom, url]
-     *
-     */
-    // for (const  of List.data) {
-    //   console.log(List.data);
-
-    newDivBeers.innerHTML += `
-     `;
   } catch (error) {
     console.log(error);
   }
