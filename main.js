@@ -23,9 +23,9 @@ async function getBeers() {
         <div class="card" style="width: 18rem">
           <img src="${beer.image_url}" class="card-img-top" alt="..."  />
           <div class="card-body">
-            <h5 class="card-title">Name: ${beer.name}</h5>
+            <h5 class="card-title">Name: ${beer.name}</h5><br>
             <p class="card-text">
-              Description:${beer.description}
+              DESCRIPTION: <br>${beer.description}
             </p>
            
            
@@ -38,8 +38,13 @@ async function getBeers() {
             
               <!-- Modal content -->
               <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>hell wo</p>
+                <span class="close"></span>
+                <p>ABV:<br> ${beer.abv}</p>
+                <p>ATTENUATION LEVEL:<br> ${beer.attenuation_level}</p>
+                <p>BOIL VOLUME:<br> ${beer.boil_volume}</p>
+                <p>BREWERS TIPS:<br> ${beer.brewers_tips}</p>
+                <p>CONTRINUTED BY:<br> ${beer.contributed_by}</p>
+                <p>FIRST BREWED:<br> ${beer.first_brewed}</p>
               </div>
             
             </div>
@@ -57,7 +62,6 @@ async function getBeers() {
   }
 }
 
-
 await getBeers();
 
 var modal = document.getElementById("myModal");
@@ -68,19 +72,19 @@ var btn = document.getElementById("myBtn");
 // close modal button
 var span = document.getElementsByClassName("close")[0];
 
-btn.onclick = function() {
+btn.onclick = function () {
   modal.style.display = "block";
-}
+};
 
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
-}
+};
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
 
 // async function getBeers() {
 //   try {
@@ -93,7 +97,8 @@ window.onclick = function(event) {
 
 // await getBeers()
 
-{/* <div class="modal fade" id="${beer.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{
+  /* <div class="modal fade" id="${beer.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -109,4 +114,5 @@ window.onclick = function(event) {
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div> */
+}
