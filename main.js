@@ -29,12 +29,71 @@ async function getBeers() {
             </p>
            
            
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#${beer.id}">
+            <button id="myBtn" data-bs-target="#${beer.id}">
              More info
             </button>
            
-           
-            <div class="modal fade" id="${beer.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>hell wo</p>
+              </div>
+            
+            </div>
+            
+          
+          
+          
+            </div>
+        </div>
+      </li>
+    </ul>`;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+await getBeers();
+
+var modal = document.getElementById("myModal");
+
+// open modal button
+var btn = document.getElementById("myBtn");
+
+// close modal button
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// async function getBeers() {
+//   try {
+//     const response = await axios.get("https://api.punkapi.com/v2/beers");
+//     console.log("reponse", response);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+// await getBeers()
+
+{/* <div class="modal fade" id="${beer.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -50,29 +109,4 @@ async function getBeers() {
                   </div>
                 </div>
               </div>
-            </div>
-          
-          
-          
-            </div>
-        </div>
-      </li>
-    </ul>`;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-await getBeers();
-
-// async function getBeers() {
-//   try {
-//     const response = await axios.get("https://api.punkapi.com/v2/beers");
-//     console.log("reponse", response);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// await getBeers()
+            </div> */}
