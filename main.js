@@ -29,7 +29,7 @@ async function getBeers() {
             </p>
            
            
-            <button id="myBtn" data-bs-target="#${beer.id}">
+            <button id="myBtn" data-target="#${beer.id}">
              More info
             </button>
            
@@ -48,11 +48,7 @@ async function getBeers() {
               </div>
             
             </div>
-            
-          
-          
-          
-            </div>
+          </div>
         </div>
       </li>
     </ul>`;
@@ -60,31 +56,30 @@ async function getBeers() {
   } catch (error) {
     console.log(error);
   }
-}
+  
+  let modal = document.getElementById("myModal");
 
-await getBeers();
+  // open modal button
+  let btn = document.getElementById("myBtn");
 
-var modal = document.getElementById("myModal");
+  // close modal button
+  let span = document.getElementsByClassName("close")[0];
 
-// open modal button
-var btn = document.getElementById("myBtn");
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
 
-// close modal button
-var span = document.getElementsByClassName("close")[0];
-
-btn.onclick = function () {
-  modal.style.display = "block";
-};
-
-span.onclick = function () {
-  modal.style.display = "none";
-};
-
-window.onclick = function (event) {
-  if (event.target == modal) {
+  span.onclick = function () {
     modal.style.display = "none";
-  }
-};
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}
+await getBeers();
 
 // async function getBeers() {
 //   try {
@@ -97,22 +92,3 @@ window.onclick = function (event) {
 
 // await getBeers()
 
-{
-  /* <div class="modal fade" id="${beer.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <p>hey</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div> */
-}
