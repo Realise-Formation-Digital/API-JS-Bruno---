@@ -1,3 +1,5 @@
+import {rootUrl} from "./axios";
+
 let newDivBeers = document.getElementById("main");
 
 async function getBeers() {
@@ -6,7 +8,7 @@ async function getBeers() {
      * Requete (GET) pour chercher les element sur l'API BIER
      */
 
-    const beerList = await axios.get("https://api.punkapi.com/v2/beers");
+    const beerList = await axios.get("rootUrl");
     console.log(beerList);
 
     /**
